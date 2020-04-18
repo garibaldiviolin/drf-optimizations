@@ -1,0 +1,45 @@
+- ModelViewSet original - endpoint=orders/, next_url=http://localhost:8000/v1/orders/?page=400, requests=400, time=11.97, results=10000
+
+Queries before request=[]
+Queries after request=[{'sql': 'SELECT COUNT(*) AS "__count" FROM "core_order"', 'time': '0.009'}, {'sql': 'SELECT "core_order"."id", "core_order"."customer", "core_order"."document", "core_order"."birth_date", "core_order"."address", "core_order"."address_number", "core_order"."neighborhood", "core_order"."city", "core_order"."state", "core_order"."state_initials" FROM "core_order" ORDER BY "core_order"."id" ASC LIMIT 25 OFFSET 9975', 'time': '0.008'}]
+Queries len=2
+
+
+
+- drf_jsonmask.views.OptimizedQuerySetMixin - endpoint=optimized-orders/?fields=id, next_url=http://localhost:8000/v1/optimized-orders/?fields=id&page=400, requests=400, time=11.70, results=10000
+
+Queries before request=[]
+Queries after request=[{'sql': 'SELECT COUNT(*) AS "__count" FROM "core_order"', 'time': '0.010'}, {'sql': 'SELECT "core_order"."id", "core_order"."customer", "core_order"."document", "core_order"."birth_date", "core_order"."address", "core_order"."address_number", "core_order"."neighborhood", "core_order"."city", "core_order"."state", "core_order"."state_initials" FROM "core_order" ORDER BY "core_order"."id" ASC LIMIT 25 OFFSET 9975', 'time': '0.008'}]
+Queries len=2
+
+
+
+- drf_jsonmask.views.OptimizedQuerySetMixin2 (com .only()) - endpoint=optimized-orders-2/?fields=id, next_url=http://localhost:8000/v1/optimized-orders-2/?fields=id&page=400, requests=400, time=11.40, results=10000
+
+Queries before request=[]
+Queries after request=[{'sql': 'SELECT COUNT(*) AS "__count" FROM "core_order"', 'time': '0.009'}, {'sql': 'SELECT "core_order"."id" FROM "core_order" ORDER BY "core_order"."id" ASC LIMIT 25 OFFSET 9975', 'time': '0.009'}]
+Queries len=2
+
+
+
+- drf_jsonmask.views.OptimizedQuerySetMixin2 (com .only()) e PageNumberPagination sem count - endpoint=optimized-orders-3/?fields=id, next_url=http://localhost:8000/v1/optimized-orders-3/?fields=id&page=401, requests=401, time=8.14, results=10000
+
+Queries before request=[]
+Queries after request=[{'sql': 'SELECT "core_order"."id" FROM "core_order" ORDER BY "core_order"."id" ASC LIMIT 25 OFFSET 10000', 'time': '0.010'}]
+Queries len=1
+
+
+
+- drf_jsonmask.views.OptimizedQuerySetMixin2 (com .only()) e LimitOffsetPagination sem count - endpoint=optimized-orders-4/?fields=id, next_url=http://localhost:8000/v1/optimized-orders-4/?fields=id&limit=25&offset=10000, requests=401, time=8.16, results=10000
+
+Queries before request=[]
+Queries after request=[{'sql': 'SELECT "core_order"."id" FROM "core_order" ORDER BY "core_order"."id" ASC LIMIT 25 OFFSET 10000', 'time': '0.009'}]
+Queries len=1
+
+
+
+- drf_jsonmask.views.OptimizedQuerySetMixin2 (com .only()) e CursorPagination - endpoint=optimized-orders-5/?fields=id, next_url=http://localhost:8000/v1/optimized-orders-5/?cursor=cD05OTc1&fields=id, requests=400, time=6.71, results=10000
+
+Queries before request=[]
+Queries after request=[{'sql': 'SELECT "core_order"."id" FROM "core_order" WHERE "core_order"."id" > 9975 ORDER BY "core_order"."id" ASC LIMIT 26', 'time': '0.001'}]
+Queries len=1
